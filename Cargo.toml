@@ -1,0 +1,43 @@
+[package]
+authors = ["Hendrik Kunert <hendrik.kunert@henku.de>"]
+categories = [
+    "embedded",
+    "no-std",
+]
+description = "A simple HD44780 LCD 'Hello world' program for the F3 Discovery board"
+keywords = [
+    "arm",
+    "cortex-m",
+    "template",
+    "hd44780"
+]
+license = "MIT OR Apache-2.0"
+name = "f3-discovery-hd44780"
+repository = "https://github.com/japaric/cortex-m-quickstart"
+version = "0.2.5"
+
+[dependencies.f3]
+features = ["rt"]
+version = "0.5.3"
+
+[dependencies]
+stm32f30x = "0.6.0"
+clerk = { git = "https://github.com/kunerd/clerk", branch = "embedded-hal-delay" }
+
+[dependencies.cortex-m]
+version = "0.4.0"
+
+[dependencies.cortex-m-rt]
+features = ["abort-on-panic"]
+version = "0.3.12"
+
+[dependencies.cortex-m-semihosting]
+version = "0.2.0"
+
+[profile.dev]
+codegen-units = 1
+incremental = false
+
+[profile.release]
+debug = true
+lto = true
